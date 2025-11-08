@@ -78,23 +78,43 @@ function encode(text, codeMap) {
 }
 
 
-const text = "AABCADDEEEF";
-const freq = frequency(text);
-const nodes = Object.entries(freq).map(([key, value]) => new Node(key, value));
-const tree = new Tree();
-tree.nodes = nodes;
-tree.sort();
+function generate() {
+    let text = document.getElementById("text").value;
 
-while (!tree.isMinimal()) {
-  tree.combineLastTwo();
-  tree.sort();
+    let displayCode = document.getElementById("code");
+    let displayMap = document.getElementById("map");
+
+    const freq = frequency(text);
+    const nodes = Object.entries(freq).map(([key, value]) => new Node(key, value));
+    const tree = new Tree();
+    tree.nodes = nodes;
+    tree.sort();
+
+    while (!tree.isMinimal()) {
+    tree.combineLastTwo();
+    tree.sort();
+    }
+
+    const codeMap = dfsPreorder(tree.nodes[0]);
+    const code = encode(text,codeMap);  
+    displayCode.textContent = `code: ${code}`;
+
+
+    let table = document.getElementById("table");
+    var i = 0;
+    for (const [key, value] of Object.entries(codeMap)) {
+        let row = table.insertRow(i);
+        let col1 = row.insertCell(0);
+        col1.textContent = key;
+        let col2 = row.insertCell(1);
+        col2.textContent = value;
+        i=i+1;
+    }
+    // draw the graph
 }
 
-const codeMap = dfsPreorder(tree.nodes[0]);
-const code = encode(text,codeMap)
 
-console.log(codeMap);
-console.log(code);
+
 
 
 

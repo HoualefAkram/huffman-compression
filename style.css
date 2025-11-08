@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
 }
 
 .circle {
@@ -24,4 +23,18 @@
   height: 4px;
   background-color: #4f46e5;
   max-width: 150px; 
+}
+
+button {
+  margin: 10px 10px;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 6px;            
 }
