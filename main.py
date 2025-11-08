@@ -8,26 +8,6 @@ class Node:
     def __repr__(self):
         return f"({self.rep} ,{self.freq}, left: {self.left}, right: {self.right})"
 
-    def __gt__(self, other):
-        if isinstance(other, Node):
-            return self.freq > other.freq
-        return NotImplemented
-
-    def __lt__(self, other):
-        if isinstance(other, Node):
-            return self.freq < other.freq
-        return NotImplemented
-
-    def __ge__(self, other):
-        if isinstance(other, Node):
-            return self.freq >= other.freq
-        return NotImplemented
-
-    def __le__(self, other):
-        if isinstance(other, Node):
-            return self.freq <= other.freq
-        return NotImplemented
-
 
 class Tree:
     def __init__(self, nodes: list[Node]):
@@ -76,7 +56,7 @@ def dfs_preorder(root: Node, current_str="", code={}):
     return code
 
 
-text = "AABCADDEEEF"
+text = "AABCBAD"
 
 freq = frequency(text)
 nodes = [Node(rep=key, freq=value) for (key, value) in freq.items()]
@@ -86,6 +66,8 @@ tree.sort()
 while not tree.is_minimal():
     tree.combine_last_two()
     tree.sort()
+    print(tree)
+    print()
 
 
 code = dfs_preorder(tree.nodes[0])
