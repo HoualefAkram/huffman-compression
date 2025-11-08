@@ -62,12 +62,18 @@ def frequency(text):
     return result
 
 
-def preorder(root: Node):
-    print(root.rep)
+def dfs_preorder(root: Node, current_str="", code={}):
     if root.left:
-        preorder(root.left)
+        current_str += "0"
+        dfs_preorder(root.left, current_str, code)
     if root.right:
-        preorder(root.right)
+        if len(current_str) > 0:
+            current_str = current_str[0 : len(current_str) - 1]
+        current_str += "1"
+        dfs_preorder(root.right, current_str, code)
+    if not root.right and not root.left:
+        code[root.rep] = current_str
+    return code
 
 
 text = "AABCADDEEEF"
@@ -82,4 +88,5 @@ while not tree.is_minimal():
     tree.sort()
 
 
-preorder(tree.nodes[0])
+code = dfs_preorder(tree.nodes[0])
+print(code)
