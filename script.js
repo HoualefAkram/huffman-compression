@@ -69,6 +69,8 @@ function frequency(text) {
   return code;
 }
 
+function bfs() {}
+
 function encode(text, codeMap) {
     c = "";
     for (const t of text) {
@@ -82,7 +84,12 @@ function generate() {
     let text = document.getElementById("text").value;
 
     let displayCode = document.getElementById("code");
-    let displayMap = document.getElementById("map");
+    let table = document.getElementById("table");
+    let graph = document.getElementById("graph");
+
+    displayCode.textContent = "";
+    table.innerHTML = ""; 
+    graph.innerHTML = "";  
 
     const freq = frequency(text);
     const nodes = Object.entries(freq).map(([key, value]) => new Node(key, value));
@@ -100,7 +107,6 @@ function generate() {
     displayCode.textContent = `code: ${code}`;
 
 
-    let table = document.getElementById("table");
     var i = 0;
     for (const [key, value] of Object.entries(codeMap)) {
         let row = table.insertRow(i);
@@ -111,6 +117,15 @@ function generate() {
         i=i+1;
     }
     // draw the graph
+    let li = document.createElement("li");
+    li.textContent = "5";
+    graph.appendChild(li);
+
+    let ul = document.createElement("ul")
+    li.appendChild(ul);
+    let nli = document.createElement("li");
+    nli.textContent = 6;
+    ul.appendChild(nli);
 }
 
 
