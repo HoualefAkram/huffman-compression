@@ -69,7 +69,23 @@ function frequency(text) {
   return code;
 }
 
-function bfs() {}
+function buildUl(root, currentUl=document.createElement("ul")) {
+  let li = document.createElement("li");
+  li.textContent = root.rep;
+  currentUl.appendChild(li);
+  if(root.left) {
+    let newUl = document.createElement("ul");
+    li.appendChild(newUl);
+    buildUl(root.left, newUl)
+  }
+  if(root.right) {
+    let newUl = document.createElement("ul");
+    li.appendChild(newUl);
+    buildUl(root.right, newUl)
+  }
+  return currentUl;
+}
+
 
 function encode(text, codeMap) {
     c = "";
@@ -117,15 +133,8 @@ function generate() {
         i=i+1;
     }
     // draw the graph
-    let li = document.createElement("li");
-    li.textContent = "5";
-    graph.appendChild(li);
-
-    let ul = document.createElement("ul")
-    li.appendChild(ul);
-    let nli = document.createElement("li");
-    nli.textContent = 6;
-    ul.appendChild(nli);
+    const treeUl = buildUl(tree.nodes[0]);
+    graph.appendChild(treeUl);
 }
 
 
