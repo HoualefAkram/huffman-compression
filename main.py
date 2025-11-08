@@ -62,7 +62,15 @@ def frequency(text):
     return result
 
 
-text = "AABCBAD"
+def preorder(root: Node):
+    print(root.rep)
+    if root.left:
+        preorder(root.left)
+    if root.right:
+        preorder(root.right)
+
+
+text = "AABCADDEEEF"
 
 freq = frequency(text)
 nodes = [Node(rep=key, freq=value) for (key, value) in freq.items()]
@@ -72,5 +80,6 @@ tree.sort()
 while not tree.is_minimal():
     tree.combine_last_two()
     tree.sort()
-    print(f"\n====ITERATION====\n")
-    print(tree)
+
+
+preorder(tree.nodes[0])
