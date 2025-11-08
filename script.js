@@ -69,6 +69,14 @@ function frequency(text) {
   return code;
 }
 
+function encode(text, codeMap) {
+    c = "";
+    for (const t of text) {
+        c = c + codeMap[t];
+    }
+    return c;
+}
+
 
 const text = "AABCADDEEEF";
 const freq = frequency(text);
@@ -82,7 +90,12 @@ while (!tree.isMinimal()) {
   tree.sort();
 }
 
-const code = dfsPreorder(tree.nodes[0]);
+const codeMap = dfsPreorder(tree.nodes[0]);
+const code = encode(text,codeMap)
+
+console.log(codeMap);
 console.log(code);
+
+
 
 
