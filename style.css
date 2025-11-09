@@ -5,52 +5,54 @@
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4f46e5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #3b36c4;
+  background-color: #3b36c4;
 }
 
 input {
-    width: 70%;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #4f46e5;
-    border-radius: 5px;
-    margin-right: 10px;
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4f46e5;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .code {
-    font-weight: bold;
-    font-size: 18px;
-    color: #1f2937;
+  font-weight: bold;
+  font-size: 18px;
+  color: #1f2937;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 16px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
 }
 
-table, th, td {
-    border: 1px solid #4f46e5;
+table,
+th,
+td {
+  border: 1px solid #4f46e5;
 }
 
-th, td {
-    padding: 10px;
-    text-align: center;
+th,
+td {
+  padding: 10px;
+  text-align: center;
 }
 
 th {
-    background-color: #4f46e5;
-    color: white;
+  background-color: #4f46e5;
+  color: white;
 }
-
