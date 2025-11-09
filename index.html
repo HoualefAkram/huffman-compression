@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <input type="text" id="text" placeholder="text" />
-      <button type="button" onclick="generate()">Generate</button>
-    </div>
-    <div class="container">
-      <p id="code" class="code"></p>
-    </div>
-    <div class="container">
-      <table id="table">
-        <tbody></tbody>
-      </table>
-    </div>
 
-    <div class="container">
-      <ul id="graph"></ul>
-    </div>
-    <script src="script.js" async defer></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <input type="text" id="text" placeholder="text" />
+    <button type="button" onclick="generate()">Generate</button>
+  </div>
+  <div class="container">
+    <p id="code" class="code"></p>
+  </div>
+  <div class="container">
+    <p id="rate" class="code"></p>
+  </div>
+  <div class="container">
+    <table id="table">
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="container">
+    <ul id="graph"></ul>
+  </div>
+  <script src="script.js" async defer></script>
+</body>
+
 </html>
