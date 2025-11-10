@@ -75,7 +75,7 @@ function dfsPreorder(root, currentStr = "", code = {}) {
 
 function buildUl(root, currentUl = document.createElement("ul")) {
   let li = document.createElement("li");
-  li.textContent = root.rep;
+  li.textContent = `${root.rep} (${root.freq})`;
   currentUl.appendChild(li);
   if (root.left) {
     let newUl = document.createElement("ul");
